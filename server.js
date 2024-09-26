@@ -5,6 +5,8 @@ import LoginRouter from "./src/routes/auth/login.js"
 import RegisterRouter from "./src/routes/auth/register.js"
 import { globalMiddleware } from './src/middlewares/auth.js';
 import { connectDb } from './src/config/dbConfig.js';
+import cors from 'cors'
+
 
 dotenv.config();
 // Create express app
@@ -12,6 +14,8 @@ const app = express();
 
 app.use(express.json());
 
+//enable cors
+app.use(cors())
 
 //middlewares
 app.use(morgan("dev"));
